@@ -41,6 +41,7 @@ public class ValoMenuLayout extends HorizontalLayout {
         contentArea.setSizeFull();
 
         addComponents(menuArea, contentArea);
+        //setExpandRatio(menuArea, 1);
         setExpandRatio(contentArea, 1);
     }
 

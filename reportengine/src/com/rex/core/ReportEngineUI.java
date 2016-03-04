@@ -100,7 +100,7 @@ public class ReportEngineUI extends UI {
         themeVariants.put("tests-valo-reindeer", "Migrate Reindeer");
     }
     
-    private final TestIcon testIcon = new TestIcon(100);
+    //private final TestIcon testIcon = new TestIcon(100);
 
     ValoMenuLayout root = new ValoMenuLayout();
     ComponentContainer viewDisplay = root.getContentContainer();
@@ -111,7 +111,7 @@ public class ReportEngineUI extends UI {
     }
     private Navigator navigator;
     private final LinkedHashMap<String, String> menuItems = new LinkedHashMap<String, String>();
-
+    
     @Override
     protected void init(final VaadinRequest request) {
         if (request.getParameter("test") != null) {
@@ -142,16 +142,19 @@ public class ReportEngineUI extends UI {
         setContent(root);
         setTheme("tests-valo-light");
         root.setWidth("100%");
-
+        //root.setSizeUndefined();
+        
+        root.setComponentAlignment(viewDisplay, Alignment.MIDDLE_LEFT);
+        
         root.addMenu(buildMenu());
         addStyleName(ValoTheme.UI_WITH_MENU);
         
         navigator = new Navigator(this, viewDisplay);
 
         navigator.addView("reportlist", CommonParts.class);
-        navigator.addView("job", Labels.class);
+        navigator.addView("job", JobUI.class);
         navigator.addView("task", ButtonsAndLinks.class);
-        navigator.addView("frequency", TextFields.class);
+        navigator.addView("frequency", JobUI.class);
         navigator.addView("user", DateFields.class);
         //navigator.addView("comboboxes", ComboBoxes.class);
         //navigator.addView("checkboxes", CheckBoxes.class);
@@ -165,7 +168,7 @@ public class ReportEngineUI extends UI {
         navigator.addView("kit2", Accordions.class);
         //navigator.addView("colorpickers", ColorPickers.class);
         //navigator.addView("selects", NativeSelects.class);
-        navigator.addView("kit3", Forms.class);
+        navigator.addView("kit3", JobUI.class);
         //navigator.addView("popupviews", PopupViews.class);
         //navigator.addView("dragging", Dragging.class);
 
